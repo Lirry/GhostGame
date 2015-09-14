@@ -9,5 +9,7 @@
 - Saved game preferences
 - Dutch and English dictionairy
 
-For more details, please see the first draft.
+For more details, please see the first draft below:
+
+![Image of draft](https://github.com/Lirry/GhostGame/blob/master/drafts.JPG)
 
