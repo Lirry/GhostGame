@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Ghost</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="go_button_text">Go!</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="ghost_welcome_message">Welcome to Ghost!</string>
+    <string name="welcome_ghost_message">WELCOME TO GHOST!</string>
+    <string name="player_two_hint">Player 2</string>
+    <string name="player_one_hint">Player 1</string>
+    <string name="english_textbox">English</string>
+    <string name="checkbox_dutch">Dutch</string>
+</resources>

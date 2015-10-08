@@ -1,0 +1,102 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.netbook.ghost.StartActivity"
+    android:background="#ffb8d2ff">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/frameLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/welcome_ghost_message"
+            android:id="@+id/textView3"
+            android:layout_gravity="center"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/frameLayout"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Players:"
+            android:id="@+id/players_mainscreen"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/player_one_input"
+            android:layout_gravity="center_horizontal"
+            android:hint="Your name"
+            android:singleLine="true"
+            />
+
+        <EditText
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/player_two_input"
+            android:layout_gravity="center_horizontal"
+            android:hint="Your name"
+            android:singleLine="true"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkbox_dutch"
+            android:id="@+id/checkbox_dutch"
+            android:onClick="dutch_checkbox_clicked"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/english_textbox"
+            android:id="@+id/checkbox_english"
+            android:onClick="english_checkbox_clicked"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            android:id="@+id/button2"
+            android:layout_gravity="right"
+            android:onClick="on_start_click_go"
+            android:layout_weight="0.94" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Highscores"
+            android:id="@+id/high_scores_button"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+</RelativeLayout>
