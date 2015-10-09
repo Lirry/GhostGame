@@ -2,6 +2,7 @@ package com.example.netbook.ghost;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,6 +61,11 @@ public class GameActivity extends ActionBarActivity {
         lexicon = new Lexicon(this,language);
         game = new Game(lexicon);
 
+        // Which player's turn it is indicated (player 1 begins)
+        player_one_display.setTypeface(null, Typeface.BOLD_ITALIC);
+
+
+
 
 
 
@@ -91,13 +98,9 @@ public class GameActivity extends ActionBarActivity {
     public void on_click_go(View view) {
         EditText input_text = (EditText) findViewById(R.id.text_input);
         input = input_text.getText().toString().toLowerCase();
-
         display_game_word = (TextView) findViewById(R.id.display_game_word);
-
         game_word += input;
-
         display_game_word.setText(game_word);
-
         game_word = display_game_word.getText().toString().toLowerCase();
 
 
@@ -108,9 +111,28 @@ public class GameActivity extends ActionBarActivity {
                 InputMethodManager.HIDE_NOT_ALWAYS);
         input_text.setText("");
 
+        // Use the filter in lexicon to check if there are words who start with this combination
+        game.guess(game_word);
 
+        // Check if somebody lost the game
+        if (game.ended()){
+            Toast.makeText(this, "Somebody won the game!", Toast.LENGTH_SHORT).show();
+        }
 
-        lexicon.filter(game_word);
+        // Switch the players
+//        player_switch();
 
     }
+
+//    public void player_switch() {
+//        if  {
+//            player_one_display.setTypeface(null, Typeface.BOLD_ITALIC);
+//            player_two_display.setTypeface(null, Typeface.NORMAL);
+//        } else {
+//            player_two_display.setTypeface(null, Typeface.BOLD_ITALIC);
+//            player_one_display.setTypeface(null, Typeface.NORMAL);
+//        }
+
+
 }
+

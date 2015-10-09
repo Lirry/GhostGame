@@ -2,27 +2,22 @@ package com.example.netbook.ghost;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+
 public class Game {
 
     Lexicon lexicon;
-    public String game_word;
     boolean player_turn = true;
     boolean winner;
 
 
 
-
-    Game(){
-        //empty
-    }
-
     Game(Lexicon lexicon) {
         this.lexicon = lexicon;
     }
 
-    public void guess(String letter) {
-        game_word += letter;
-        lexicon.filter(game_word);
+    public void guess(String letter)  {
+        lexicon.filter(letter);
     }
 
     public boolean turn(){
@@ -30,9 +25,8 @@ public class Game {
     }
 
     public boolean ended() {
-        if (lexicon.game_word != null && lexicon.game_word.equals(game_word)
+        if (lexicon.game_word != null && lexicon.game_word.equals(lexicon.result())
                 || lexicon.count() == 0) {
-            winner = !turn();
             return true;
         }
         return false;

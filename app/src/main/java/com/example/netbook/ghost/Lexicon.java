@@ -27,6 +27,7 @@ public class Lexicon {
     Set<String> hash_libary;
     ArrayList<String> filter_list;
     String game_word;
+    String final_word;
 
 
     public Lexicon(Context context, String sourcePath) {
@@ -66,17 +67,26 @@ public class Lexicon {
         // Arraylist is declared to store the elements that contain the game word as prefix
         filter_list = new ArrayList<>();
 
-        // The hashset is iterated to check if it contains the prefix, and stored in the arraylist.
+        // The hashset is iterated to check if it contains the prefix, and stored in the arraylist
         Iterator<String> iterator = hash_libary.iterator();
 
+
+        // Loading the words that remain after the filter in an Arraylist
         while (iterator.hasNext()) {
             String word = iterator.next();
             if (word.startsWith(game_word_lexicon) && game_word_lexicon != " ") {
                 filter_list.add(word);
             }
         }
-        if (filter_list != null){
+        if (filter_list.size() > 0){
             Log.d("filterlist not empty", "filterlistnotempty");
+        }
+        else
+            Log.d("filterlist empty", "filterlist empty");
+
+        if (filter_list.size() == 1){
+            final_word = result();
+            Log.d("there is one word left", "one word left");
         }
     }
 
@@ -87,7 +97,7 @@ public class Lexicon {
 
 
     public String result() {
-        return filter_list.iterator().next();
+            return filter_list.iterator().next();
     }
 
     public void reset(){
