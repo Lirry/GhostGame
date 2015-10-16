@@ -11,4 +11,7 @@
     <string name="player_one_hint">Player 1</string>
     <string name="english_textbox">English</string>
     <string name="checkbox_dutch">Dutch</string>
+    <string name="title_activity_high_score">HighScoreActivity</string>
+    <string name="title_activity_rules">RulesActivity</string>
+    <string name="title_activity_congratz">CongratzActivity</string>
 </resources>

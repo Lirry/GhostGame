@@ -1,33 +1,24 @@
-package com.example.netbook.ghost;
+// Lirry Pinter ID: 10565051
 
+package nl.mprog.ghost;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.net.Uri;
 import android.util.Log;
-import android.widget.TextView;
-
 import java.io.BufferedReader;
-import java.io.Console;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
 import java.util.Set;
 
 
 public class Lexicon {
 
-    Set<String> hash_libary;
-    ArrayList<String> filter_list;
+    private final Set<String> hash_libary;
+    private ArrayList<String> filter_list;
     String game_word;
-    String final_word;
 
 
     public Lexicon(Context context, String sourcePath) {
@@ -70,41 +61,28 @@ public class Lexicon {
         // The hashset is iterated to check if it contains the prefix, and stored in the arraylist
         Iterator<String> iterator = hash_libary.iterator();
 
-
         // Loading the words that remain after the filter in an Arraylist
         while (iterator.hasNext()) {
             String word = iterator.next();
-            if (word.startsWith(game_word_lexicon) && game_word_lexicon != " ") {
+            if (word.startsWith(game_word_lexicon) && !game_word_lexicon.equals(" ")) {
                 filter_list.add(word);
             }
         }
-        if (filter_list.size() > 0){
-            Log.d("filterlist not empty", "filterlistnotempty");
-        }
-        else
-            Log.d("filterlist empty", "filterlist empty");
-
-        if (filter_list.size() == 1){
-            final_word = result();
-            Log.d("there is one word left", "one word left");
-        }
     }
-
-
+    // Returns count
     public int count() {
         return filter_list.size();
     }
 
-
+    // Returns last word
     public String result() {
             return filter_list.iterator().next();
     }
 
+    // Resets the filter
     public void reset(){
         filter_list = new ArrayList<>(hash_libary);
     }
-
-
 
 }
 

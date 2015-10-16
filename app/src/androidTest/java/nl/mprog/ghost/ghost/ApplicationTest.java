@@ -1,4 +1,4 @@
-package com.example.netbook.ghost;
+package nl.mprog.ghost.ghost;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
